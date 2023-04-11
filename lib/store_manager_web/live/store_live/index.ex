@@ -7,6 +7,7 @@ defmodule StoreManagerWeb.StoreLive.Index do
 
   @impl true
   def mount(_params, _session, socket) do
+    IO.inspect(Business.list_stores())
     {:ok, stream(socket, :stores, Business.list_stores())}
   end
 

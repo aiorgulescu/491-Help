@@ -31,4 +31,18 @@ defmodule StoreManager.BusinessFixtures do
 
     store
   end
+
+  @doc """
+  Generate a clerk.
+  """
+  def clerk_fixture(attrs \\ %{}) do
+    {:ok, clerk} =
+      attrs
+      |> Enum.into(%{
+        name: "some name"
+      })
+      |> StoreManager.Business.create_clerk()
+
+    clerk
+  end
 end
